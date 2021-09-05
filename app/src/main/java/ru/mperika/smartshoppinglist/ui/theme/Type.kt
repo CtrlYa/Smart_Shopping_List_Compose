@@ -1,4 +1,4 @@
-package ru.mperika.smartshoppinlist.ui.theme
+package ru.mperika.smartshoppinglist.ui.theme
 
 import androidx.compose.material.Typography
 import androidx.compose.ui.text.TextStyle

@@ -1,4 +1,4 @@
-package ru.mperika.smartshoppinlist
+package ru.mperika.smartshoppinglist
 
 import org.junit.Test
 

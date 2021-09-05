@@ -6,5 +6,5 @@ dependencyResolutionManagement {
         jcenter() // Warning: this repository is going to shut down soon
     }
 }
-rootProject.name = "Smart Shoppin List"
+rootProject.name = "Smart Shopping List"
 include ':app'
