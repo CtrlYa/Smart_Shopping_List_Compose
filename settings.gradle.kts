@@ -7,4 +7,4 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "Smart Shopping List"
-include ':app'
+include(":app")
