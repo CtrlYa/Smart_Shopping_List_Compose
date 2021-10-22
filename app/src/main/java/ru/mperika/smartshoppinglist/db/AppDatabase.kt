@@ -11,30 +11,22 @@ abstract class AppDatabase : RoomDatabase() {
     abstract fun productDAO() : ProductDAO
 
     companion object {
+        @Volatile
+        private var INSTANCE: AppDatabase? = null
 
-        // For Singleton instantiation
-        @Volatile private var instance: AppDatabase? = null
+        fun getDatabase(context: Context): AppDatabase {
+            // if the INSTANCE is not null, then return it,
+            // if it is, then create the database
+            return INSTANCE ?: synchronized(this) {
+                val instance = Room.databaseBuilder(
+                    context.applicationContext,
+                    AppDatabase::class.java,
+                    "word_database"
+                ).build()
+                INSTANCE = instance
 
-        fun getInstance(context: Context): AppDatabase {
-            return instance ?: synchronized(this) {
-                instance ?: buildDatabase(context).also { instance = it }
+                return instance
             }
-        }
-
-        // Create and pre-populate the database. See this article for more details:
-        //TODO: изучить https://medium.com/google-developers/7-pro-tips-for-room-fbadea4bfbd1#4785
-        private fun buildDatabase(context: Context): AppDatabase {
-            return Room.databaseBuilder(context, AppDatabase::class.java, "shopping_list")
-//                .addCallback(
-//                    object : RoomDatabase.Callback() {
-//                        override fun onCreate(db: SupportSQLiteDatabase) {
-//                            super.onCreate(db)
-//                            val request = OneTimeWorkRequestBuilder<SeedDatabaseWorker>().build()
-//                            WorkManager.getInstance(context).enqueue(request)
-//                        }
-//                    }
-//                )
-                .build()
         }
     }
 }
