@@ -41,8 +41,7 @@ class ItemCard() {
     @Composable
     fun itemListCard(product: Product) {
         Row(
-                Modifier
-                        .padding(all = 8.dp)
+                Modifier.padding(all = 8.dp)
                         .border(width = 3.dp, color = Color.Red, RectangleShape)
                         .fillMaxWidth()
         ) {

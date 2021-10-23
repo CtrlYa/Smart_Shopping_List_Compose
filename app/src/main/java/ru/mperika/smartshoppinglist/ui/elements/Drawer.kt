@@ -14,13 +14,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import java.util.Date
 import kotlinx.coroutines.launch
-import ru.mperika.smartshoppinglist.MessageList
-import ru.mperika.smartshoppinglist.data.Product
-import ru.mperika.smartshoppinglist.data.ProductCategory
-import ru.mperika.smartshoppinglist.data.view_models.ShoppingListViewModel
-import ru.mperika.smartshoppinglist.db.ShoppingListRepository
 import ru.mperika.smartshoppinglist.ui.theme.SmartShoppinListTheme
 
 @Composable
@@ -110,29 +104,10 @@ fun BodyContentComponent(
 
 @Composable
 fun Screen1Component(openDrawer: () -> Unit) {
-    val productList: List<Product> by ShoppingListViewModel().
-//    val productList = ArrayList<Product>()
-//    productList.add(
-//        Product(
-//            "Bread",
-//            "BradFactory",
-//            ProductCategory.MEAL,
-//            5,
-//            Date(10005000),
-//            ""
-//        )
-//    )
-//    productList.add(
-//        Product(
-//            "Butter",
-//            "ButterFactory",
-//            ProductCategory.MEAL,
-//            5,
-//            Date(10005000),
-//            ""
-//        )
-//    )
-//    productList.add(Product("Milk", "MilkFactory", ProductCategory.MEAL, 5, Date(10005000), ""))
+//    val productList: List<Product> by ShoppingListViewModel().getLiveDataVals()
+//    val mutableState = remember {
+//        ShoppingListViewModel().getLiveDataVals()
+//    }
     Scaffold(topBar = {
         TopAppBar(
             title = { Text(DrawerScreen.Screen1.getText()) },
@@ -157,7 +132,7 @@ fun Screen1Component(openDrawer: () -> Unit) {
         Column(modifier = Modifier.fillMaxSize()) {
             Surface(color = MaterialTheme.colors.background) {
                 Column {
-                    MessageList(productList)
+//                    MessageList(productList)
                 }
             }
         }

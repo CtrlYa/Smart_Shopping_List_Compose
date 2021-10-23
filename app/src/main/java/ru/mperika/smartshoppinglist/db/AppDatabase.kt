@@ -6,7 +6,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import ru.mperika.smartshoppinglist.data.Product
 
-@Database(entities = arrayOf(Product::class), version = 11)
+@Database(entities = [Product::class], version = 11)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun productDAO() : ProductDAO
 
